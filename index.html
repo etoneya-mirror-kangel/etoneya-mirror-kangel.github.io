@@ -1,1 +1,272 @@
-# init
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ЭтоНеЯ | Ключи к цифровой свободе</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ArThirtyFour/NeedyWebUI@main/nso_ui.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>.nso-accordion--open .nso-accordion__body { max-height: 2000px; }</style>
+</head>
+<body>
+    <div class="nightbg">
+        <div class="container">
+            <div class="nso-panel">
+                <div class="nso-panel__title"><h2>Об проекте</h2></div>
+                <div class="nso-panel__body">
+                    <div class="nso-kpi">
+                        <div class="nso-kpi__item">
+                            <div class="nso-kpi__label">Статус</div>
+                            <div class="nso-kpi__value">РАБОТАЕТ</div>
+                        </div>
+                        <div class="nso-kpi__item">
+                            <div class="nso-kpi__label">Белый список?</div>
+                            <div class="nso-kpi__value">ОБХОДИТСЯ</div>
+                        </div>
+                    </div>
+                    <p>ЭтоНеЯ или ЦеЯ — проект для помощи людям в ситуацях ограничения интернета ввиде белых списков и т.д</p>
+                    <p>Ниже ты найдёшь ссылки и инструкции</p>
+                </div>
+            </div>
+
+            <div class="nso-panel">
+                <div class="nso-panel__title"><h2>Ссылки на каналы</h2></div>
+                <div class="nso-panel__body">
+                    <div class="u-flex u-flex-wrap u-gap10">
+                        <a class="nso-btn" href="https://t.me/YoutubeUnBlockRU" target="_blank">
+                            <i class="fab fa-telegram-plane" style="margin-right:6px;"></i>Основной канал "ЭтоНеЯ"
+                        </a>
+                        <a class="nso-btn" href="https://t.me/ArThirtyFour" target="_blank">
+                            <i class="fab fa-telegram-plane" style="margin-right:6px;"></i>Автор зеркала
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nso-panel">
+                <div class="nso-panel__title"><h2>Подписки</h2></div>
+                <div class="nso-panel__body">
+                    <div class="u-flex u-items-center u-gap10" style="margin-bottom:14px; justify-content:center;">
+                        <label class="nso-toggle">
+                            <input type="checkbox" id="clashToggle" class="nso-toggle__input">
+                            <span class="nso-toggle__track"><span class="nso-toggle__thumb"></span></span>
+                            <span>Clash / Mihomo</span>
+                        </label>
+                        <span id="clashBadge" class="nso-badge">V2Ray</span>
+                    </div>
+                    <div id="subs-container"></div>
+                </div>
+            </div>
+
+            <div class="nso-panel">
+                <div class="nso-panel__title"><h2>Как использовать?</h2></div>
+                <div class="nso-panel__body">
+                    <div class="nso-kpi">
+                        <div class="nso-kpi__item">
+                            <div class="nso-kpi__label">Шаг 1</div>
+                            <div class="nso-kpi__value" style="font-size:14px;">Нажми "КОПИРОВАТЬ" у нужной категории</div>
+                        </div>
+                        <div class="nso-kpi__item">
+                            <div class="nso-kpi__label">Шаг 2</div>
+                            <div class="nso-kpi__value" style="font-size:14px;">Вставь в клиент (V2RayNG / Nekobox / Streisand)</div>
+                        </div>
+                        <div class="nso-kpi__item">
+                            <div class="nso-kpi__label">Шаг 3</div>
+                            <div class="nso-kpi__value" style="font-size:14px;">Проверь IP на 2ip.io или ipleak.net</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nso-panel">
+                <div class="nso-panel__title"><h2>Контакты</h2></div>
+                <div class="nso-panel__body">
+                    <div class="u-flex u-flex-wrap u-gap10">
+                        <a class="nso-btn" href="https://t.me/YoutubeUnBlockRu" target="_blank">
+                            <i class="fab fa-telegram" style="margin-right:6px;"></i>t.me/YoutubeUnBlockRu
+                        </a>
+                        <a class="nso-btn" href="https://t.me/EtoNeYaSupportBot" target="_blank">
+                            <i class="fas fa-headset" style="margin-right:6px;"></i>Техподдержка
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nso-footer">© 2026 Єто ◦ Ні ◦ Я | Это ◦ Не ◦ Я | Це ◦ Я
+                <br>
+                <a href="https://github.com/ArThirtyFour/NeedyWebUI" target="_blank">Powered by NeedyUI</a>
+            </div>
+        </div>
+    </div>
+    <div id="toast-container" class="nso-toast-container"></div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const categories = [
+        {
+            title: "ТОЛЬКО БЕЛЫЕ СПИСКИ",
+            icon: "fa-list-check",
+            links: [
+                { label: "Основа №1 [etoneya.su]", url: "https://etoneya.su/whitelist" },
+                { label: "Зеркало №1 [etoneya.baby]", url: "https://whitelist.etoneya.baby" },
+                { label: "Зеркало №2 [twinkvibe.gay]", url: "https://ety.twinkvibe.gay/whitelist" },
+                { label: "Зеркало №3 [alley.serv00]", url: "https://alley.serv00.net/whitelist" },
+                { label: "Зеркало №4 [yandex]", url: "https://translate.yandex.ru/translate?url=https://whitelist.etoneya.baby&lang=en-ru", clashUrl: "https://translate.yandex.ru/translate?url=https://whitelist.etoneya.baby.yaml&lang=en-ru" },
+                { label: "Зеркало №5 [vercel]", url: "https://etoneya.vercel.app/whitelist" },
+                { label: "Зеркало №6 [gitverse]", url: "https://gitverse.ru/api/repos/etoneya/sub/raw/branch/master/whitelist" },
+                { label: "Зеркало №7 [kangel.tech]", url: "https://internet-tenshi.kangel.tech/whitelist" }
+            ]
+        },
+        {
+            title: "ЧЕРНЫЕ СПИСКИ",
+            icon: "fa-ban",
+            links: [
+                { label: "Основа №1 [etoneya.su]", url: "https://etoneya.su/other" },
+                { label: "Зеркало №1 [etoneya.baby]", url: "https://blacklist.etoneya.baby" },
+                { label: "Зеркало №2 [twinkvibe.gay]", url: "https://ety.twinkvibe.gay/other" },
+                { label: "Зеркало №3 [alley.serv00]", url: "https://alley.serv00.net/other" },
+                { label: "Зеркало №4 [yandex]", url: "https://translate.yandex.ru/translate?url=https://blacklist.etoneya.baby&lang=en-ru", clashUrl: "https://translate.yandex.ru/translate?url=https://blacklist.etoneya.baby.yaml&lang=en-ru" },
+                { label: "Зеркало №5 [vercel]", url: "https://etoneya.vercel.app/blacklist" },
+                { label: "Зеркало №6 [gitverse]", url: "https://gitverse.ru/api/repos/etoneya/sub/raw/branch/master/other" },
+                { label: "Зеркало №7 [kangel.tech]", url: "https://internet-tenshi.kangel.tech/other" }
+            ]
+        },
+        {
+            title: "РАБОТАЕТ Gemini",
+            icon: "fa-robot",
+            links: [
+                { label: "Основа №1 [etoneya.su]", url: "https://etoneya.su/gemini" },
+                { label: "Зеркало №1 [etoneya.baby]", url: "https://gemini.etoneya.baby" },
+                { label: "Зеркало №2 [twinkvibe.gay]", url: "https://ety.twinkvibe.gay/gemini" },
+                { label: "Зеркало №3 [alley.serv00]", url: "https://alley.serv00.net/gemini" },
+                { label: "Зеркало №4 [yandex]", url: "https://translate.yandex.ru/translate?url=https://gemini.etoneya.baby&lang=en-ru", clashUrl: "https://translate.yandex.ru/translate?url=https://gemini.etoneya.baby.yaml&lang=en-ru" },
+                { label: "Зеркало №5 [vercel]", url: "https://etoneya.vercel.app/gemini" },
+                { label: "Зеркало №6 [gitverse]", url: "https://gitverse.ru/api/repos/etoneya/sub/raw/branch/master/gemini" },
+                { label: "Зеркало №7 [kangel.tech]", url: "https://internet-tenshi.kangel.tech/gemini" }
+            ]
+        },
+        {
+            title: "РАБОТАЕТ Youtube",
+            icon: "fa-brands fa-youtube",
+            links: [
+                { label: "Основа №1 [etoneya.su]", url: "https://etoneya.su/youtube" },
+                { label: "Зеркало №1 [etoneya.baby]", url: "https://yt.etoneya.baby" },
+                { label: "Зеркало №2 [twinkvibe.gay]", url: "https://ety.twinkvibe.gay/youtube" },
+                { label: "Зеркало №3 [alley.serv00]", url: "https://alley.serv00.net/youtube" },
+                { label: "Зеркало №4 [yandex]", url: "https://translate.yandex.ru/translate?url=https://yt.etoneya.baby&lang=en-ru", clashUrl: "https://translate.yandex.ru/translate?url=https://yt.etoneya.baby.yaml&lang=en-ru" },
+                { label: "Зеркало №5 [vercel]", url: "https://etoneya.vercel.app/youtube" },
+                { label: "Зеркало №6 [gitverse]", url: "https://gitverse.ru/api/repos/etoneya/sub/raw/branch/master/youtube" },
+                { label: "Зеркало №7 [kangel.tech]", url: "https://internet-tenshi.kangel.tech/youtube" }
+            ]
+        },
+        {
+            title: "РАБОТАЕТ Youtube Music",
+            icon: "fa-music",
+            links: [
+                { label: "Основа №1 [etoneya.su]", url: "https://etoneya.su/ytm" },
+                { label: "Зеркало №1 [etoneya.baby]", url: "https://ytm.etoneya.baby" },
+                { label: "Зеркало №2 [twinkvibe.gay]", url: "https://ety.twinkvibe.gay/ytm" },
+                { label: "Зеркало №3 [alley.serv00]", url: "https://alley.serv00.net/ytm" },
+                { label: "Зеркало №4 [yandex]", url: "https://translate.yandex.ru/translate?url=https://ytm.etoneya.baby&lang=en-ru", clashUrl: "https://translate.yandex.ru/translate?url=https://ytm.etoneya.baby.yaml&lang=en-ru" },
+                { label: "Зеркало №5 [vercel]", url: "https://etoneya.vercel.app/ytm" },
+                { label: "Зеркало №6 [gitverse]", url: "https://gitverse.ru/api/repos/etoneya/sub/raw/branch/master/ytm" },
+                { label: "Зеркало №7 [kangel.tech]", url: "https://internet-tenshi.kangel.tech/ytm" }
+            ]
+        },
+        {
+            title: "ВСЕ ВМЕСТЕ",
+            icon: "fa-layer-group",
+            links: [
+                { label: "Основа №1 [etoneya.su]", url: "https://etoneya.su/1" },
+                { label: "Зеркало №1 [etoneya.baby]", url: "https://etoneya.baby/1" },
+                { label: "Зеркало №2 [twinkvibe.gay]", url: "https://ety.twinkvibe.gay/1" },
+                { label: "Зеркало №3 [alley.serv00]", url: "https://alley.serv00.net/1" },
+                { label: "Зеркало №4 [yandex]", url: "https://translate.yandex.ru/translate?url=https://etoneya.baby/1&lang=en-ru", clashUrl: "https://translate.yandex.ru/translate?url=https://etoneya.baby/1.yaml&lang=en-ru" },
+                { label: "Зеркало №5 [twinkvibe.gay] #2", url: "https://ety.twinkvibe.gay/2" },
+                { label: "Зеркало №6 [alley.serv00] #2", url: "https://alley.serv00.net/2" },
+                { label: "Зеркало №7 [yandex] #2", url: "https://translate.yandex.ru/translate?url=https://etoneya.baby/2&lang=en-ru", clashUrl: "https://translate.yandex.ru/translate?url=https://etoneya.baby/2.yaml&lang=en-ru" },
+                { label: "Зеркало №8 [vercel] #1", url: "https://etoneya.vercel.app/1" },
+                { label: "Зеркало №8 [vercel] #2", url: "https://etoneya.vercel.app/2" },
+                { label: "Зеркало №9 [gitverse] #1", url: "https://gitverse.ru/api/repos/etoneya/sub/raw/branch/master/1" },
+                { label: "Зеркало №9 [gitverse] #2", url: "https://gitverse.ru/api/repos/etoneya/sub/raw/branch/master/2" },
+                { label: "Зеркало №10 [kangel] #1", url: "https://internet-tenshi.kangel.tech/1" },
+                { label: "Зеркало №10 [kangel] #2", url: "https://internet-tenshi.kangel.tech/2" },
+                { label: "Зеркало №11 [etoneya.baby] #1", url: "https://etoneya.baby/1" },
+                { label: "Зеркало №11 [etoneya.baby] #2", url: "https://etoneya.baby/2" }
+            ]
+        }
+    ];
+
+    let clashMode = localStorage.getItem('clashMode') === 'true';
+    const container = document.getElementById('subs-container');
+    const toggle = document.getElementById('clashToggle');
+    const badge = document.getElementById('clashBadge');
+    const toastEl = document.getElementById('toast-container');
+
+    toggle.checked = clashMode;
+
+    function showToast(msg) {
+        toastEl.innerHTML = '<div class="nso-toast" style="opacity:1;transition:opacity 0.3s;">' +
+            '<span style="color:#4D23CD;font-family:dinkie9px,sans-serif;font-size:14px;">' + msg + '</span></div>';
+        setTimeout(() => { toastEl.innerHTML = ''; }, 2000);
+    }
+
+    function copyText(text) {
+        navigator.clipboard.writeText(text).then(() => showToast(clashMode ? 'Clash скопирован!' : 'Скопировано!'));
+    }
+
+    function buildSubs() {
+        let html = '';
+        categories.forEach(cat => {
+            const id = 'acc-' + cat.title.replace(/\s+/g, '-');
+            html += '<div class="nso-accordion" id="' + id + '">' +
+                '<div class="nso-accordion__header" onclick="toggleAcc(this)">' +
+                '<span><i class="fas ' + cat.icon + '" style="margin-right:8px;"></i>' + cat.title + '</span>' +
+                '</div>' +
+                '<div class="nso-accordion__body"><div class="nso-accordion__inner">';
+            html += '<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;">';
+            cat.links.forEach(link => {
+                const url = clashMode ? link.url + '.yaml' : link.url;
+                html += '<div>' +
+                    '<div style="font-size: 13px;opacity:0.75;margin-bottom:4px;">' + link.label + '</div>' +
+                    '<button class="nso-btn nso-btn--lg u-w-full" data-url="' + link.url + '" onclick="copyUrl(this)">' +
+                    '<i class="fas fa-copy" style="margin-right:4px;"></i>КОПИРОВАТЬ</button>' +
+                    '</div>';
+            });
+            html += '</div></div></div></div>';
+        });
+        container.innerHTML = html;
+    }
+
+    window.toggleAcc = function(header) {
+        header.closest('.nso-accordion').classList.toggle('nso-accordion--open');
+    };
+
+    window.copyUrl = function(btn) {
+        const base = btn.getAttribute('data-url');
+        if (clashMode) {
+            if (base.includes('translate.yandex.ru/translate?url=')) {
+                copyText(base.replace(/(translate\.yandex\.ru\/translate\?url=)([^&]+)/, '$1$2.yaml'));
+            } else {
+                copyText(base + '.yaml');
+            }
+        } else {
+            copyText(base);
+        }
+    };
+
+    toggle.addEventListener('change', () => {
+        clashMode = toggle.checked;
+        localStorage.setItem('clashMode', clashMode);
+        badge.textContent = clashMode ? 'Clash' : 'V2Ray';
+        badge.className = clashMode ? 'nso-badge nso-badge--primary' : 'nso-badge';
+    });
+
+    badge.textContent = clashMode ? 'Clash' : 'V2Ray';
+    if (clashMode) badge.className = 'nso-badge nso-badge--primary';
+
+    buildSubs();
+});
+</script>
+</body>
+</html>
