@@ -6,14 +6,38 @@ ipv6: true
 unified-delay: true
 tcp-concurrent: true
 proxies:
-- name: https://t.me/YoutubeUnBlockRu
+- name: '⛔ Зеркало неактуально — переходи на etoneya.su | TG: @YoutubeUnBlockRu'
   type: vless
-  server: 104.18.35.86
-  port: 8080
-  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+  server: etoneya.su
+  port: 443
+  uuid: 00000000-0000-0000-0000-000000000000
   udp: true
-  tls: false
-  network: ws
+  tls: true
+  servername: etoneya.su
+- name: '👉 Новое зеркало: https://etoneya.su/notmain'
+  type: vless
+  server: etoneya.su
+  port: 443
+  uuid: 00000000-0000-0000-0000-000000000000
+  udp: true
+  tls: true
+  servername: etoneya.su
+- name: '📢 Telegram: https://t.me/YoutubeUnBlockRu'
+  type: vless
+  server: etoneya.su
+  port: 443
+  uuid: 00000000-0000-0000-0000-000000000000
+  udp: true
+  tls: true
+  servername: etoneya.su
+- name: '🔁 Обнови подписку: https://etoneya.su/notmain'
+  type: vless
+  server: etoneya.su
+  port: 443
+  uuid: 00000000-0000-0000-0000-000000000000
+  udp: true
+  tls: true
+  servername: etoneya.su
 tun:
   enable: true
   stack: system
@@ -98,7 +122,10 @@ proxy-groups:
   hidden: true
   proxies:
   - ⚡️ Авто
-  - https://t.me/YoutubeUnBlockRu
+  - '⛔ Зеркало неактуально — переходи на etoneya.su | TG: @YoutubeUnBlockRu'
+  - '👉 Новое зеркало: https://etoneya.su/notmain'
+  - '📢 Telegram: https://t.me/YoutubeUnBlockRu'
+  - '🔁 Обнови подписку: https://etoneya.su/notmain'
 - name: 📺 Youtube
   type: select
   hidden: true
