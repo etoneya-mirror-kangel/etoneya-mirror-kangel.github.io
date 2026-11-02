@@ -8,36 +8,36 @@ tcp-concurrent: true
 proxies:
 - name: '⛔ Зеркало неактуально — переходи на etoneya.su | TG: @YoutubeUnBlockRu'
   type: vless
-  server: etoneya.su
+  server: internet-tenshi.kangel.xyz
   port: 443
   uuid: 00000000-0000-0000-0000-000000000000
   udp: true
   tls: true
-  servername: etoneya.su
-- name: '👉 Новое зеркало: https://etoneya.su/1'
+  servername: internet-tenshi.kangel.xyz
+- name: '👉 Новое зеркало: https://internet-tenshi.kangel.xyz/1'
   type: vless
-  server: etoneya.su
+  server: internet-tenshi.kangel.xyz
   port: 443
   uuid: 00000000-0000-0000-0000-000000000000
   udp: true
   tls: true
-  servername: etoneya.su
+  servername: internet-tenshi.kangel.xyz
 - name: '📢 Telegram: https://t.me/YoutubeUnBlockRu'
   type: vless
-  server: etoneya.su
+  server: internet-tenshi.kangel.xyz
   port: 443
   uuid: 00000000-0000-0000-0000-000000000000
   udp: true
   tls: true
-  servername: etoneya.su
-- name: '🔁 Обнови подписку: https://etoneya.su/1'
+  servername: internet-tenshi.kangel.xyz
+- name: '🔁 Обнови подписку: https://internet-tenshi.kangel.xyz/1'
   type: vless
-  server: etoneya.su
+  server: internet-tenshi.kangel.xyz
   port: 443
   uuid: 00000000-0000-0000-0000-000000000000
   udp: true
   tls: true
-  servername: etoneya.su
+  servername: internet-tenshi.kangel.xyz
 tun:
   enable: true
   stack: system
@@ -123,9 +123,9 @@ proxy-groups:
   proxies:
   - ⚡️ Авто
   - '⛔ Зеркало неактуально — переходи на etoneya.su | TG: @YoutubeUnBlockRu'
-  - '👉 Новое зеркало: https://etoneya.su/1'
+  - '👉 Новое зеркало: https://internet-tenshi.kangel.xyz/1'
   - '📢 Telegram: https://t.me/YoutubeUnBlockRu'
-  - '🔁 Обнови подписку: https://etoneya.su/1'
+  - '🔁 Обнови подписку: https://internet-tenshi.kangel.xyz/1'
 - name: 📺 Youtube
   type: select
   hidden: true
